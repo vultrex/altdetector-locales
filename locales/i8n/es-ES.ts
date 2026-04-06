@@ -1,0 +1,1017 @@
+export const esES = {
+    common: {
+        error: "Ocurrió un error.",
+        success: "¡Éxito!",
+        loading: "Cargando...",
+    },
+    cmd: {
+        ping: {
+            // --- SLASH COMMAND (Deploy Script) ---
+            name: "ping",
+            description: "Responde con Pong",
+
+            // --- EMBED RESPONSE (Runtime) ---
+            title: "🏓 ¡Pong!",
+            embedDesc: "Velocidad de respuesta: `{latency}ms`\nLatencia de la API: `{api}ms`",
+        },
+        privacy: {
+            name: "privacidad",
+            description: "Lee la política de privacidad del bot.",
+            title: "Política de Privacidad",
+            embedDesc:
+                "Haz clic en el enlace de abajo para ver la política de privacidad de Alt Detector:\n\n[Ver Política de Privacidad]({url})",
+        },
+        stats: {
+            name: "estadisticas",
+            description: "Las estadísticas del bot.",
+            title: "Estadísticas",
+            fields: {
+                guilds: "Servidores",
+                users: "Usuarios",
+                platform: "Plataforma",
+                version: "Versión",
+                shards: "Fragmentos",
+                commands: "Comandos",
+                uptime: "Tiempo activo",
+                latency: "Latencia",
+                devs: "Desarrolladores",
+            },
+            error: "Ocurrió un error al obtener las estadísticas del bot.",
+        },
+        serverstats: {
+            name: "estadisticas-servidor",
+            description: "Ver el panel de seguridad del servidor.",
+            title: "Panel de Seguridad del Servidor",
+            subtitle: "Resumen de seguridad de {guild}",
+            enabled: "Activado",
+            disabled: "Desactivado",
+            notSet: "Sin configurar",
+            unavailable: "No disponible",
+            never: "Nunca",
+            pageFooter: "Página {page} de 4",
+            buttons: {
+                overview: "Resumen",
+                activity: "Actividad",
+                outcomes: "Resultados",
+                live: "En vivo",
+                refresh: "Actualizar",
+            },
+            sections: {
+                protectionStatus: "Estado de protección",
+                rightNow: "Ahora mismo",
+                snapshot7: "Resumen de 7 días",
+                snapshot30: "Resumen de 30 días",
+                snapshotAll: "Resumen histórico",
+                last7: "Últimos 7 días",
+                last30: "Últimos 30 días",
+                allTime: "Histórico",
+                currentProtection: "Protección actual",
+                accessOverrides: "Excepciones de acceso",
+                destinations: "Destinos configurados",
+            },
+            fields: {
+                detection: "Detección",
+                minimumAccountAge: "Edad mínima de la cuenta",
+                responseMode: "Modo de respuesta",
+                dmWarning: "Aviso por DM activado",
+                joinsSeen: "Ingresos vistos",
+                membersChecked: "Miembros revisados",
+                invitePassesUsed: "Usos de invitación confiable",
+                tempPassesUsed: "Usos de acceso temporal (Let In)",
+                alertsRaised: "Alertas generadas",
+                alertRate: "Tasa de alertas",
+                averageAlertScore: "Puntuación media de alerta",
+                highestAlertScore: "Puntuación más alta",
+                activeTempPasses: "Accesos temporales activos (Let In)",
+                activeTrustedInvites: "Invitaciones confiables activas",
+                criticalScoreMembers: "Miembros con puntuación crítica",
+                lastAlert: "Última alerta",
+                autoActionsTaken: "Acciones automáticas realizadas",
+                autoKicks: "Expulsiones automáticas",
+                autoBans: "Baneos automáticos",
+                actionFailures: "Fallos de acción",
+                notifyChannel: "Canal de avisos",
+                logChannel: "Canal de registros",
+                notifyRole: "Rol a mencionar",
+            },
+            responseModes: {
+                log: "Solo registrar",
+                kick: "Expulsar",
+                ban: "Banear",
+                quarantine: "Cuarentena",
+            },
+            messages: {
+                onlyOwner: "Solo la persona que abrió este panel puede usar estos botones.",
+                unavailable: "Ese botón ya no está disponible.",
+            },
+        },
+        support: {
+            name: "soporte",
+            description: "Obtén un enlace para unirte al servidor de soporte.",
+            title: "Servidor de Soporte",
+            embedDesc:
+                "Únete a nuestro [servidor]({link}) si necesitas ayuda con Alt Detector o quieres dejar comentarios o sugerencias.\n\n{link}",
+            error: "Ocurrió un error al obtener el enlace de soporte.",
+        },
+        sus: {
+            name: "sus",
+            description: "Comandos para revisiones manuales y utilidades de detección.",
+            sub: {
+                check: {
+                    name: "comprobar",
+                    description: "Calcula y muestra la puntuación de sospecha para un usuario objetivo.",
+                    options: {
+                        user: {
+                            name: "usuario",
+                            description: "El usuario que quieres revisar por actividad sospechosa.",
+                        },
+                    },
+                },
+            },
+            risk: {
+                low: "🟢 Riesgo bajo",
+                mod: "🟠 Sospecha moderada",
+                high: "🔴 Alta sospecha (posible alt/spam)",
+            },
+            embed: {
+                title: "Revisión de sospecha alt para {tag}",
+                desc: "**{status}**\n\nLas características del perfil de este usuario dan como resultado una **Puntuación de Sospecha de {score} / 120**. (La revisión de antigüedad usa el límite de **{days} días**).",
+                fieldFactors: "Factores que contribuyen",
+                fieldCreated: "Cuenta creada",
+                fieldJoined: "Se unió al servidor",
+                noFactors: "No se encontraron factores sospechosos importantes.",
+                notInServer: "*El usuario no está actualmente en el servidor*",
+            },
+            factors: {
+                zalgo: "- Nombre con Zalgo/corrupto: **+15** (El nombre contiene texto Zalgo)",
+                inappropriate: "- Nombre inapropiado: **+15** (El nombre contiene palabras potencialmente ofensivas)",
+                ageNew: "- Antigüedad de la cuenta: **+{score}** (La cuenta solo tiene {days} días)",
+                ageOld: "- Antigüedad de la cuenta: **+0** (La cuenta tiene más de {days} días)",
+                avatarDefault: "- Avatar por defecto: **+20** (Usa la imagen de perfil predeterminada de Discord)",
+                avatarCustom: "- Avatar por defecto: **+0** (Usa una imagen de perfil personalizada)",
+                numeric: "- Nombre numérico: **+10** (El nombre contiene cuatro o más números seguidos)",
+                keyword: "- Palabras sospechosas: **+10** (El nombre contiene una palabra sospechosa)",
+                noRoles: "- Sin roles personalizados: **+10** (El miembro solo tiene el rol predeterminado @everyone)",
+                hasRoles: "- Tiene roles personalizados: **+0** {El miembro tiene {count} rol(es) personalizado(s)}",
+                rolesNA: "- Falta de roles: **N/A** (El usuario no está actualmente en el servidor)",
+                shortName: "- Nombre corto: **+10** (El nombre es muy corto)",
+                longName: "- Nombre largo: **+5** (El nombre es inusualmente largo)",
+                normalName: "- Longitud del nombre: **+0** (La longitud del nombre es aceptable)",
+            },
+        },
+        riskban: {
+            name: "riskban",
+            description: "Revisa o banea miembros sospechosos según su puntuación.",
+            options: {
+                test: {
+                    name: "prueba",
+                    description: "Muestra una vista previa sin banear a nadie.",
+                },
+                score: {
+                    name: "puntuacion",
+                    description: "Puntuación mínima de sospecha a incluir. Predeterminada: 80.",
+                },
+            },
+            errorNoPerm: ":x: No tengo permiso para banear miembros en este servidor.",
+            cooldown: "⏳ Espera **{seconds}s** antes de usar este comando de nuevo.",
+            none: ":white_check_mark: Ningún miembro coincidió con una puntuación de **{score}+**.",
+            score: "Puntuación {score} / 120",
+            running: "Baneando a **{count}** miembro(s)...",
+            reason: "Baneo de miembro sospechoso por {user} (puntuación {score}+)",
+            action: {
+                ban: "Banear miembros",
+                test: "Solo prueba (sin baneos)",
+            },
+            confirm: {
+                title: "⚠️ Confirmar baneo masivo",
+                desc: "Esto baneará a **{count}** miembro(s) con una puntuación de **{score}+**.\n¿Quieres continuar?",
+                previewTitle: "Coincidencias principales (10)",
+                actionName: "Modo",
+                timeoutName: "Tiempo límite",
+                timeoutVal: "30s",
+                proceed: "Continuar",
+                cancel: "Cancelar",
+                cancelled: "Baneo masivo cancelado.",
+                timedOut: "La confirmación del baneo masivo expiró.",
+            },
+            info: {
+                title: "Qué hará esto",
+                desc: "Acción: **{action}**\nLos baneos son permanentes y pueden borrar hasta 7 días de mensajes.",
+            },
+            result: {
+                title: "Baneo masivo completado",
+                desc: "Baneados: **{success}**\nFallidos: **{failed}**",
+                failedTitle: "Baneos fallidos (10 principales)",
+            },
+            resultTest: {
+                title: "Resultados de prueba",
+                desc: "Se banearían: **{count}** (puntuación **{score}+**)",
+            },
+        },
+        userinfo: {
+            name: "info-usuario",
+            description: "Obtén información sobre ti u otro miembro.",
+            options: {
+                member: {
+                    name: "miembro",
+                    description: "El miembro del que quieres obtener información.",
+                },
+            },
+            ack: {
+                owner: "Propietario del servidor",
+                admin: "Administrador del servidor",
+                mod: "Moderador del servidor",
+                member: "Miembro del servidor",
+            },
+            fields: {
+                nickname: "Apodo",
+                ack: "Nivel",
+                discrim: "Discriminador",
+                joined: "Se unió al servidor",
+                created: "Cuenta creada",
+                bot: "Bot",
+                requestedBy: "Solicitado por {user}",
+            },
+            yes: "Sí",
+            no: "No",
+        },
+        vote: {
+            name: "voto",
+            description: "Consulta tu estado de voto o el de otro miembro en top.gg.",
+            options: {
+                member: {
+                    name: "miembro",
+                    description: "El miembro del que quieres comprobar el estado de voto.",
+                },
+            },
+            errorToken: "❌ El token de Top.gg del bot no está configurado.",
+            errorApi: "❌ No se pudo comunicar con la API de Top.gg.",
+            clickHere: "[Haz clic aquí para ir a la página de votación.]({link})",
+            titleSelf: "Estado de voto de Alt Detector",
+            fieldSelf: "¿Has votado en las últimas 12 horas?",
+            fieldOther: "¿Ha votado en las últimas 12 horas?",
+            valYesSelf: "✅ Sí, has votado :)",
+            valNoSelf: "❌ No, no has votado :(",
+            valYesOther: "✅ Sí, ha votado :)",
+            valNoOther: "❌ No, no ha votado :(",
+            checkedBy: "Comprobado por: {tag}",
+        },
+        fetch: {
+            name: "buscar",
+            description: "Obtén una lista de miembros creados por debajo de una cantidad de días.",
+            options: {
+                days: {
+                    name: "dias",
+                    description:
+                        "La antigüedad máxima de la cuenta en días (por ejemplo, 30 para cuentas de menos de 30 días).",
+                },
+            },
+            errorNum: "Debes proporcionar un número válido mayor que 0.",
+            errorMax: ":x: Los días no pueden ser más de 365 (un año) para evitar una carga excesiva.",
+            errorEmpty: ":x: No hay miembros creados por debajo de {days} días.",
+            title: "Cuentas detectadas (menos de {days} días)",
+            footer: "Total encontrado: {count} | Solicitado por: {user}",
+            createdRecently: "**Creada hace {time}**",
+            createdDays: "**Creada hace {days} día(s)**",
+            binTitle: "Búsqueda de Alt Detector para {guild}",
+            binDesc: "Miembros creados por debajo de {days} días",
+            more: "\n\n**...y {count} más.**",
+            link: "Lista completa",
+            clickHere: "[Haz clic aquí]({url}) para ver la lista completa",
+            errorGeneric: "Ocurrió un error inesperado al procesar la solicitud.",
+        },
+        quarantine: {
+            name: "cuarentena",
+            description: "Ver y configurar la cuarentena para este servidor.",
+            sub: {
+                view: {
+                    name: "ver",
+                    description: "Ver la configuración de cuarentena.",
+                },
+                "set-role": {
+                    name: "establecer-rol",
+                    description: "Elige el rol usado para los miembros en cuarentena.",
+                    options: {
+                        role: {
+                            name: "rol",
+                            description: "Rol para la cuarentena. Déjalo vacío para borrarlo.",
+                        },
+                    },
+                },
+                "set-review-channel": {
+                    name: "establecer-canal-revision",
+                    description: "Elige dónde se envían las tarjetas de revisión de cuarentena.",
+                    options: {
+                        channel: {
+                            name: "canal",
+                            description: "Canal para las revisiones de cuarentena. Déjalo vacío para borrarlo.",
+                        },
+                    },
+                },
+                setup: {
+                    name: "configurar",
+                    description: "Crear el rol de cuarentena y el canal de revisión.",
+                },
+                reset: {
+                    name: "restablecer",
+                    description: "Borrar el rol y el canal de revisión guardados.",
+                },
+            },
+            view: {
+                title: "Vista de Cuarentena",
+                description: {
+                    actionMode: "Modo de acción: **{action}**",
+                    setupStatus: "Estado de configuración: **{status}**",
+                    needsAttention:
+                        "La cuarentena está seleccionada, pero el rol o el canal de revisión todavía necesitan atención.",
+                    ready: "Los miembros marcados se enviarán a revisión cuando Cuarentena sea la acción seleccionada.",
+                },
+                fields: {
+                    role: "Rol de Cuarentena",
+                    reviewChannel: "Canal de Revisión",
+                    important: "Importante",
+                    importantValue:
+                        "El bot asigna el rol de cuarentena a los miembros marcados y también puede aplicar un timeout largo. Si quieres un aislamiento real, asegúrate de que el rol Quarantined no pueda ver tus canales normales.",
+                },
+                labels: {
+                    setTo: "Asignado a",
+                    status: "Estado",
+                },
+                states: {
+                    ready: "Listo",
+                    needsAttention: "Necesita atención",
+                    missing: "Falta",
+                    notConfigured: "**Sin configurar**",
+                },
+                values: {
+                    missing: "Falta (`{id}`)",
+                },
+            },
+            setRole: {
+                set: "El rol de cuarentena se estableció en {role}.",
+                cleared: "El rol de cuarentena se borró.",
+                errors: {
+                    active: "El modo Cuarentena está activo. Cambia a otra acción antes de quitar el rol de cuarentena.",
+                },
+            },
+            setReviewChannel: {
+                set: "El canal de revisión de cuarentena se estableció en {channel}.",
+                cleared: "El canal de revisión de cuarentena se borró.",
+                errors: {
+                    active: "El modo Cuarentena está activo. Cambia a otra acción antes de quitar el canal de revisión.",
+                },
+            },
+            setup: {
+                title: "Configuración de Cuarentena Completa",
+                description: "Tu rol de cuarentena y canal de revisión ya están listos.",
+                important:
+                    "Las tarjetas de revisión solo se publican para ingresos marcados. Si quieres que los moderadores accedan al canal de revisión, configura esos permisos del canal tú mismo después de la configuración.",
+                alreadySetup:
+                    "La cuarentena ya está configurada. Usa `/quarantine view` para revisarla o `/quarantine reset` si quieres empezar de nuevo.",
+            },
+            reset: {
+                success: "El rol y el canal de revisión de cuarentena guardados se borraron.",
+                errors: {
+                    active: "Cuarentena es la acción seleccionada actualmente. Cámbiala en `/settings set-action` antes de restablecer la configuración de cuarentena.",
+                },
+            },
+            errors: {
+                unexpected: "Ocurrió un error inesperado.",
+                memberRecord: "No pude resolver mi registro de miembro en este servidor.",
+                needManageRolesCreate: "Necesito `Manage Roles` para crear el rol de cuarentena.",
+                needManageChannelsCreate: "Necesito `Manage Channels` para crear el canal de revisión.",
+            },
+            validation: {
+                everyoneRole: "No puedes usar el rol @everyone para la cuarentena.",
+                managedRole: "Los roles administrados por integraciones no se pueden usar para la cuarentena.",
+                highestRoleMissing: "No pude resolver mi rol más alto en este servidor.",
+                needManageRolesAssign: "Necesito `Manage Roles` para asignar el rol de cuarentena.",
+                roleTooHigh: "Ese rol es igual o superior a mi rol más alto, por lo que no podría asignarlo.",
+                reviewView: "No tengo permiso para ver {channel}.",
+                reviewSend: "No tengo permiso para enviar mensajes en {channel}.",
+                reviewEmbed: "No tengo permiso para insertar enlaces en {channel}.",
+                reviewHistory: "No tengo permiso para leer el historial de mensajes en {channel}.",
+            },
+        },
+        letin: {
+            name: "letin",
+            description: "Gestiona la lista de acceso temporal (Let In) para omitir la detección.",
+            sub: {
+                add: {
+                    name: "agregar",
+                    description: "Añade un usuario a la lista temporal para una sola entrada.",
+                    options: {
+                        userid: {
+                            name: "idusuario",
+                            description: "La ID del usuario que quieres permitir.",
+                        },
+                    },
+                },
+                remove: {
+                    name: "quitar",
+                    description: "Elimina un usuario de la lista temporal.",
+                    options: {
+                        userid: {
+                            name: "idusuario",
+                            description: "La ID del usuario que quieres eliminar.",
+                        },
+                    },
+                },
+                list: {
+                    name: "lista",
+                    description: "Muestra todos los usuarios en la lista temporal.",
+                },
+            },
+            errorInvalidId: ":x: Debes proporcionar una **ID de usuario válida**.",
+            errorAlreadyIn: ":x: El {type} **ya está en el servidor** y no necesita una excepción.",
+            errorAlreadyWhite: ":x: El {type} **ya está en la lista temporal** para una sola entrada.",
+            successAdd: "El **{type}** (`{id}`) se añadió correctamente a la lista temporal :white_check_mark:",
+            whitelistedBy: "Añadido por: {user}",
+            errorNotFound: ":x: La ID de usuario `{id}` **no fue encontrada** en la lista temporal.",
+            successRemove: "El usuario **{tag}** (`{id}`) fue **eliminado** de la lista temporal. :white_check_mark:",
+            listEmpty: "La lista temporal está vacía. No hay usuarios con excepción.",
+            listTitle: "🛡️ Lista temporal ({count} usuarios)",
+            listFooter: "Estos usuarios tienen un acceso temporal de una sola entrada para la detección alt.",
+            listRow: "**{index}.** {name} - Añadido por {user}",
+            unknownUser: "Usuario desconocido",
+            you: "Tú",
+            user: "usuario",
+            bot: "bot",
+        },
+        bypass: {
+            name: "omitir",
+            description: "Gestiona reglas de omisión.",
+            sub: {
+                invite: {
+                    name: "invitacion",
+                    description: "Gestiona códigos de invitación confiables.",
+                    sub: {
+                        code: {
+                            name: "codigo",
+                            description: "Añade un código de invitación confiable para omitir las revisiones.",
+                            options: {
+                                code: {
+                                    name: "codigo",
+                                    description: "Código de invitación o URL de invitación.",
+                                },
+                            },
+                        },
+                        remove: {
+                            name: "quitar",
+                            description: "Elimina un código de invitación confiable.",
+                            options: {
+                                code: {
+                                    name: "codigo",
+                                    description: "Código de invitación o URL de invitación.",
+                                },
+                            },
+                        },
+                        list: {
+                            name: "lista",
+                            description: "Muestra todos los códigos de invitación confiables.",
+                        },
+                    },
+                },
+            },
+            invite: {
+                invalidCode: ":x: Debes proporcionar un **código de invitación válido**.",
+                missingPerm: ":x: Necesito el permiso de **Gestionar servidor** para verificar invitaciones.",
+                exists: ":x: El código `{code}` ya es confiable.",
+                notInServer: ":x: El código `{code}` no es una invitación activa de este servidor.",
+                added: "El código `{code}` se añadió a la lista confiable. :white_check_mark:",
+                addedBy: "Añadido por: {user}",
+                notFound: ":x: El código `{code}` **no fue encontrado** en la lista confiable.",
+                removed: "El código `{code}` fue eliminado de la lista confiable. :white_check_mark:",
+                listEmpty: "Aún no se han añadido códigos de invitación confiables.",
+                listTitle: "🔐 Invitaciones confiables ({count})",
+                listFooter: "Los miembros que entren con estos códigos omitirán la detección alt.",
+                listRow: "**{index}.** `{code}` - Añadido por {user}",
+                you: "Tú",
+            },
+        },
+        settings: {
+            name: "ajustes",
+            description: "Gestiona la configuración de Alt Detector para este servidor.",
+            sub: {
+                view: { name: "ver", description: "Muestra la configuración actual de Alt Detector." },
+                "set-days": {
+                    name: "establecer-dias",
+                    description: "Establece la antigüedad mínima de cuenta requerida para entrar.",
+                    options: {
+                        days: {
+                            name: "dias",
+                            description: "La antigüedad requerida de la cuenta en días.",
+                        },
+                    },
+                },
+                "set-action": {
+                    name: "establecer-accion",
+                    description: "Establece la acción que se toma cuando se detecta una cuenta alt.",
+                    options: {
+                        type: {
+                            name: "tipo",
+                            description: "La acción a tomar: Expulsar (1), Banear (2) o Ninguna (0).",
+                        },
+                    },
+                },
+                "set-logger-channel": {
+                    name: "establecer-canal-registros",
+                    description: "Establece el canal donde se enviarán todos los registros de detección alt.",
+                    options: {
+                        channel: {
+                            name: "canal",
+                            description: "El canal de texto para los registros (déjalo vacío para desactivar).",
+                        },
+                    },
+                },
+                "set-logger-thread-channel": {
+                    name: "establecer-hilo-registros",
+                    description: "Establece el hilo dedicado donde se enviarán todos los registros de detección alt.",
+                    options: {
+                        thread: {
+                            name: "hilo",
+                            description: "El hilo para los registros (déjalo vacío para desactivar).",
+                        },
+                    },
+                },
+                "set-notify-channel": {
+                    name: "establecer-canal-avisos",
+                    description: "Establece el canal para avisar cuando se detecte una cuenta alt.",
+                    options: {
+                        channel: {
+                            name: "canal",
+                            description: "El canal de texto para los avisos (déjalo vacío para desactivar).",
+                        },
+                    },
+                },
+                "set-notify-thread-channel": {
+                    name: "establecer-hilo-avisos",
+                    description: "Establece el hilo dedicado para las notificaciones.",
+                    options: {
+                        thread: {
+                            name: "hilo",
+                            description: "El hilo para las notificaciones.",
+                        },
+                    },
+                },
+                "set-notify-role": {
+                    name: "establecer-rol-avisos",
+                    description: "Establece el rol a mencionar cuando se detecte una cuenta alt.",
+                    options: {
+                        role: {
+                            name: "rol",
+                            description: "El rol a mencionar (déjalo vacío para desactivar).",
+                        },
+                    },
+                },
+                "set-config-role": {
+                    name: "establecer-rol-config",
+                    description: "Establece el rol permitido para gestionar los comandos de configuración.",
+                    options: {
+                        role: {
+                            name: "rol",
+                            description: "El rol a permitir (déjalo vacío para desactivar).",
+                        },
+                    },
+                },
+                toggle: {
+                    name: "alternar",
+                    description: "Activa o desactiva la detección alt.",
+                    options: {
+                        status: {
+                            name: "estado",
+                            description: "Si quieres activar (True) o desactivar (False) la detección alt.",
+                        },
+                    },
+                },
+                "set-message": {
+                    name: "establecer-mensaje",
+                    description: "Establece el mensaje personalizado por DM que se envía a las cuentas alt.",
+                    options: {
+                        message: {
+                            name: "mensaje",
+                            description: "El contenido del mensaje. Usa {days}, {user}, {guild} como marcadores.",
+                        },
+                        enabled: {
+                            name: "activado",
+                            description: "¿Se debe enviar el mensaje?",
+                        },
+                    },
+                },
+                remove: {
+                    name: "restablecer",
+                    description: "Restablece una configuración concreta o todas a sus valores predeterminados.",
+                    sub: {
+                        days: { name: "dias", description: "Restablecer la antigüedad de la cuenta." },
+                        action: { name: "accion", description: "Restablecer la acción." },
+                        "logger-channel": { name: "canal-registros", description: "Desactivar el canal de registros." },
+                        "notify-channel": { name: "canal-avisos", description: "Desactivar el canal de avisos." },
+                        "notify-role": { name: "rol-avisos", description: "Desactivar el rol de avisos." },
+                        "config-role": { name: "rol-config", description: "Desactivar el rol de configuración." },
+                        message: { name: "mensaje", description: "Restablecer el mensaje por DM." },
+                        all: { name: "todo", description: "Restablecer TODA la configuración." },
+                    },
+                },
+            },
+            // Option descriptions omitted for brevity (Deploy script uses defaults if not strictly needed)
+            actions: {
+                log: "Solo registrar (sin acción)",
+                kick: "Expulsar miembro",
+                ban: "Banear miembro",
+                quarantine: "Poner en cuarentena",
+            },
+            view: {
+                title: "Configuración de Alt Detector",
+                fLog: "Canal de registros (texto)",
+                fThread: "Canal de registros (hilo)",
+                fNotify: "Canal de avisos (texto)",
+                fNotifyThread: "Canal de avisos (hilo)",
+                fRole: "Rol a mencionar",
+                fConfigRole: "Rol de configuración",
+                fAction: "Tipo de acción",
+                fDays: "Antigüedad requerida",
+                fStatus: "Estado de detección alt",
+                fDmStatus: "Estado del mensaje por DM",
+                fPreview: "Contenido del mensaje por DM (vista previa)",
+                enabled: "✅ Activado",
+                disabled: "❌ Desactivado",
+                defaultMsg: "No cumples la antigüedad mínima para entrar (predeterminado)",
+            },
+            set: {
+                days: "✅ La antigüedad mínima se estableció en **{days} día(s)**.",
+                action: "✅ La acción al detectar un alt se estableció en **{action}**.",
+                log: "✅ El canal de registros se estableció en {channel}.",
+                logDisabled: "✅ El canal de registros fue **desactivado**.",
+                thread: "✅ El hilo de registros se estableció en {channel}.",
+                threadDisabled: "✅ El hilo de registros fue **desactivado**.",
+                notify: "✅ El canal de avisos se estableció en {channel}.",
+                notifyDisabled: "✅ El canal de avisos fue **desactivado**.",
+                notifyThread: "✅ El hilo de avisos se estableció en {channel}.",
+                notifyThreadDisabled: "✅ El hilo de avisos fue **desactivado**.",
+                role: "✅ El rol a mencionar se estableció en {role}.",
+                roleDisabled: "✅ El rol a mencionar fue **desactivado**.",
+                roleWarning: ":warning: El rol {role} es igual o superior a mi rol. Puede que no pueda mencionarlo.",
+                roleEveryone: ":x: No se puede configurar el rol **@everyone**.",
+                configRole: "✅ El rol de configuración se estableció en {role}.",
+                configRoleDisabled: "✅ El rol de configuración fue **desactivado**.",
+                configRoleEveryone: ":x: No se puede configurar el rol **@everyone**.",
+                toggle: "{emoji} La detección alt fue {status} en este servidor.",
+                msg: "✅ ¡La configuración del mensaje por DM se actualizó correctamente!",
+                msgStatus: "Estado del mensaje",
+                msgPreview: "Vista previa del mensaje",
+                msgFooter: "Marcadores: {user}, {guild}, {days}",
+            },
+            reset: {
+                days: "✅ La antigüedad requerida se restableció a **{days} día(s)** (predeterminado).",
+                action: "✅ La acción al detectar un alt se restableció a **{action}** (predeterminado).",
+                log: "✅ El canal de registros fue **desactivado** (predeterminado).",
+                notify: "✅ El canal de avisos fue **desactivado** (predeterminado).",
+                role: "✅ El rol a mencionar fue **desactivado** (predeterminado).",
+                configRole: "✅ El rol de configuración fue **desactivado** (predeterminado).",
+                msg: "✅ El mensaje por DM y su estado se restablecieron a la **configuración predeterminada**.",
+                allTitle: "⚠️ Toda la configuración fue restablecida",
+                allDesc:
+                    "🛑 Toda la configuración de Alt Detector volvió a sus **valores predeterminados**. La detección alt ahora está **DESACTIVADA**.",
+            },
+            error: {
+                view: ":x: No tengo permiso para **ver** el canal {channel}.",
+                send: ":x: No tengo permiso para **enviar mensajes** en el canal {channel}.",
+                perm: ":x: Necesitas permiso de **Gestionar servidor**{role} para usar este comando.",
+                permRole: " o el rol de configuración {role}",
+                quarantineSetupRequired:
+                    "Configura un rol de cuarentena y un canal de revisión con `/quarantine` antes de activar el modo Cuarentena.",
+            },
+        },
+        similarity: {
+            name: "similitud",
+            description: "Compara la similitud entre dos usuarios.",
+            sub: {
+                check: {
+                    name: "comprobar",
+                    description: "Comprueba la similitud entre dos usuarios.",
+                    options: {
+                        user1: {
+                            name: "usuario1",
+                            description: "Primer usuario",
+                        },
+                        user2: {
+                            name: "usuario2",
+                            description: "Segundo usuario",
+                        },
+                    },
+                },
+                explain: {
+                    name: "explicar",
+                    description: "Explica cómo funciona la puntuación de similitud.",
+                },
+            },
+        },
+        simEmbed: {
+            title: "Revisión de similitud alt",
+            scoreTitle: "Puntuación de similitud",
+            scoreVal: "**{score} / 100**\n{emoji} **Confianza {confidence}**",
+            username: "Nombre de usuario",
+            age: "Antigüedad de la cuenta",
+            join: "Momento de entrada",
+            activity: "Actividad",
+            indicators: "Indicadores coincidentes",
+            noIndicators: "No se encontraron indicadores de similitud fuertes.",
+            footer: "La similitud alt es probabilística. Revisa manualmente antes de actuar.",
+
+            // Explanation Embed
+            expTitle: "Cómo funciona la similitud alt",
+            expDesc:
+                "Este bot calcula la similitud usando múltiples señales independientes. Ningún factor por sí solo puede marcar a un usuario.",
+            factorsTitle: "Factores de puntuación",
+            factors: {
+                username: "**Similitud de nombre (20%)** – Patrones y cambios en el nombre",
+                creation: "**Momento de creación de la cuenta (15%)** – Cuentas creadas muy cerca entre sí",
+                join: "**Momento de entrada al servidor (15%)** – Entraron casi al mismo tiempo",
+                activity: "**Patrón de actividad (10%)** – Horas activas similares",
+            },
+            notesTitle: "Notas importantes",
+            notes: {
+                proof: "• Similitud ≠ prueba",
+                prob: "• Las puntuaciones son probabilísticas",
+                review: "• Se requiere revisión humana",
+                verified: "• Los usuarios verificados quedan excluidos",
+            },
+            expFooter: "La transparencia genera confianza. Revisa siempre manualmente.",
+        },
+        monke: {
+            name: "monke",
+            description: "Los monkes son geniales y traen un texto divertido.",
+            title: "Monke",
+            texts: [
+                "Monke quiere banana, pero si monke solo come banana, monke se muere, así que ahora monke también come verduras",
+                "Monke quiere banana, y si no hay banana, monke hará oOoOoooooOeEEeeeEeEeEOoOAAaAaAAAAAAAAAAAA",
+                "Monke dice que la vida podría ser un sueño porque no puedes soñar do-roo-do-do, sh-boom",
+                "¡Felicidades! Has conseguido al raro Monke.\n```\n          __\n    w   c(..)o   (\n      \\__(-)     __)\n          /\\   (\n         /(_)___)\n         w /|\n           | \\\n         m  m\n```",
+                'JAJA, te estafó una vaca\n```\n            (__) \n            (oo) \n      /------\\ /\n    / |      ||\n   * /\\-----/\\\n      ~~    ~~\n ...."¿Ya mugiste hoy?"...\n```',
+            ],
+            error: "Ocurrió un error al invocar al monke. Inténtalo de nuevo.",
+        },
+        avatar: {
+            name: "avatar",
+            description: "Obtén tu avatar o el de otro miembro.",
+            options: {
+                member: {
+                    name: "miembro",
+                    description: "El miembro cuyo avatar quieres obtener.",
+                },
+            },
+            title: "Avatar de {user}",
+            error: "Ocurrió un error al obtener el avatar.",
+        },
+        "request-deletion": {
+            name: "solicitar-eliminacion",
+            description: "Solicita la eliminación de los datos de este servidor.",
+            options: {
+                reason: {
+                    name: "motivo",
+                    description: "Por qué quieres que se eliminen los datos (opcional).",
+                },
+            },
+            confirm: {
+                title: "💢 Solicitar eliminación de datos",
+                desc: "¿Seguro que quieres **eliminar** los datos de este servidor?\nUna vez aprobada, esta acción borrará permanentemente todos los datos y ajustes.",
+                reasonName: "Motivo",
+                timeoutName: "Tiempo límite",
+                timeoutVal: "30s",
+                proceed: "Continuar",
+                cancel: "Cancelar",
+                cancelled: "⚪ Solicitud de eliminación cancelada.",
+                timedOut: "⏱️ La solicitud de eliminación expiró.",
+            },
+            embedTitle: "Solicitud de eliminación de datos",
+            fields: {
+                guild: "Servidor",
+                guildId: "ID del servidor",
+                owner: "Propietario del servidor",
+                requester: "Solicitado por",
+                reason: "Motivo",
+            },
+            defaultReason: "No se proporcionó ningún motivo.",
+            success: "✅ Tu solicitud de eliminación de datos fue enviada.",
+            errorOwner: ":x: Solo el **propietario del servidor** puede solicitar la eliminación de datos.",
+            errorCooldown:
+                "⏳ Se envió una solicitud de eliminación recientemente. Espera **{time}** antes de intentarlo otra vez.",
+            cooldown: {
+                title: "⏳ Enfriamiento de solicitud",
+                desc: "Se envió una solicitud de eliminación recientemente.\n**Espera** antes de intentarlo otra vez.",
+                fieldName: "Tiempo restante",
+            },
+            errorWebhook:
+                ":x: El webhook de eliminación de datos no está configurado. Ponte en contacto con el propietario del bot.",
+            errorSend: ":x: No se pudo enviar la solicitud. Inténtalo más tarde.",
+        },
+        language: {
+            name: "idioma",
+            description: "Configura el idioma del bot para este servidor.",
+            options: {
+                language: {
+                    name: "idioma",
+                    description: "El idioma que quieres establecer.",
+                    choices: {
+                        "en-US": "Inglés (EE. UU.)",
+                        "es-ES": "Español",
+                        ja: "Japonés",
+                        "user-preferred": "Preferencia del usuario (predeterminado)",
+                    },
+                },
+            },
+            choices: {
+                en: "Inglés (EE. UU.)",
+                es: "Español",
+                ja: "Japonés",
+                default: "Preferencia del usuario (predeterminado)",
+            },
+            success: "✅ El idioma se actualizó correctamente a **{lang}**.",
+        },
+    },
+    // CMD ENDS
+    time: {
+        day: "día",
+        days: "días",
+        hr: "h",
+        hrs: "h",
+        min: "min",
+        mins: "mins",
+        sec: "s",
+        secs: "s",
+        ago: "atrás",
+    },
+
+    listeners: {
+        command: {
+            missing: "¡Falta el manejador de ese comando! Esto no debería pasar.",
+            error: "¡Hubo un error al ejecutar este comando!",
+            guildOnly: "Este comando solo se puede usar en un servidor.",
+            voteOnly: {
+                title: "Se requiere votar",
+                description:
+                    "Debes votar por Alt Detector en top.gg antes de usar `/{command}`.\n\n[Haz clic aquí para votar.]({link})",
+            },
+        },
+        alt: {
+            actions: {
+                log: "Solo registrar",
+                kick: "Expulsar",
+                ban: "Banear",
+                quarantine: "Cuarentena",
+            },
+            bypass: {
+                title: "Omisión utilizada",
+                desc: "{user} omitió la detección alt al entrar con la invitación `{code}`.",
+                fields: {
+                    member: "Miembro",
+                    code: "Código de invitación",
+                },
+            },
+            mail: {
+                title: ":mailbox: Correo",
+                created: "Cuenta creada",
+                req: "Requisito",
+                from: "De",
+            },
+            notify: {
+                title: "Entró un alt",
+                score: "Puntuación de sospecha",
+                fields: {
+                    member: "Miembro",
+                    id: "ID",
+                    bot: "Bot",
+                    created: "Cuenta creada",
+                    pos: "Posición al entrar",
+                    white: "En lista blanca",
+                    action: "Acción",
+                    review: "Revisión",
+                },
+                yes: "Sí",
+                no: "No",
+                none: "Ninguna (lista blanca)",
+            },
+            log: {
+                successTitleKick: ":white_check_mark: **Alt expulsado**",
+                successTitleBan: ":white_check_mark: **Alt baneado**",
+                failTitle: ":x: **Falló la acción**",
+                failDesc:
+                    "No tengo permiso para {action}, o mi rol puede ser igual o inferior al del miembro. (Error: {error})",
+                successDesc: "{user} no cumple el requisito de {days} día(s)",
+                reason: "El miembro no cumple el requisito de {days} día(s)",
+                fields: {
+                    member: "Miembro",
+                    type: "Tipo de acción",
+                    created: "Cuenta creada",
+                },
+            },
+        },
+        quarantine: {
+            buttons: {
+                allow: "Permitir",
+                kick: "Expulsar",
+                ban: "Banear",
+            },
+            errors: {
+                genericButtonFailed: "La acción del botón falló. Inténtalo de nuevo.",
+                unavailableAction: "Esa acción de cuarentena ya no está disponible.",
+                needsManageServer: "Necesitas permiso de Gestionar Servidor para revisar casos de cuarentena.",
+                needsKickMembers: "Necesitas permiso de Expulsar Miembros para usar esta acción.",
+                needsBanMembers: "Necesitas permiso de Banear Miembros para usar esta acción.",
+                caseNotFound: "No se pudo encontrar ese caso de cuarentena.",
+                alreadyClosed: "Ese caso de cuarentena ya está cerrado.",
+                memberLeft: "El miembro ya salió del servidor. El caso se cerró.",
+                caseUpdatedElsewhere: "Ese caso de cuarentena fue actualizado por otra persona.",
+                releaseFailed: "No se pudo liberar al miembro. El caso se cerró como fallido.",
+                released: "Miembro liberado de la cuarentena.",
+                kickFailedNotKickable: "La expulsión falló porque el bot no puede expulsar al miembro.",
+                kicked: "Miembro expulsado.",
+                kickFailedClosed: "La expulsión falló. El caso se cerró como fallido.",
+                banFailedNotBannable: "El baneo falló porque el bot no puede banear al miembro.",
+                banned: "Miembro baneado.",
+                banFailedClosed: "El baneo falló. El caso se cerró como fallido.",
+                missingRole: "El rol de cuarentena falta o ya no existe.",
+                missingManageRoles: "Al bot le falta `Manage Roles` para asignar la cuarentena.",
+                notManageable: "El miembro no es administrable para asignarle el rol de cuarentena.",
+                failedApplyRole: "No se pudo aplicar el rol de cuarentena: {error}",
+                missingModerateMembers: "Al bot le falta `Moderate Members` para usar el timeout de respaldo.",
+                notModeratable: "No se puede moderar al miembro para aplicar el timeout de respaldo.",
+                failedApplyTimeout: "No se pudo aplicar el timeout de cuarentena: {error}",
+                missingReviewChannel: "El canal de revisión falta o no está disponible.",
+                missingBotMember: "No se pudo resolver el miembro del bot en este servidor.",
+                inaccessibleReviewChannel: "El bot no tiene acceso completo al canal de revisión configurado.",
+                failedPostReviewCard: "No se pudo publicar la tarjeta de revisión: {error}",
+                failedRemoveRole: "No se pudo quitar el rol de cuarentena: {error}",
+                failedClearTimeout: "No se pudo quitar el timeout de cuarentena: {error}",
+                notKickable: "El bot no puede expulsar al miembro.",
+                failedKickMember: "No se pudo expulsar al miembro: {error}",
+                notBannable: "El bot no puede banear al miembro.",
+                failedBanMember: "No se pudo banear al miembro: {error}",
+            },
+            review: {
+                title: "Revisión de Cuarentena",
+                titleUpdated: "Revisión de Cuarentena Actualizada",
+                openCase: "Abrir caso",
+                unavailableCase: "Tarjeta de revisión no disponible",
+                fields: {
+                    member: "Miembro",
+                    snapshot: "Resumen",
+                    details: "Detalles",
+                },
+                status: {
+                    open: "Pendiente de revisión del moderador",
+                    allowed: "Permitido",
+                    kicked: "Expulsado",
+                    banned: "Baneado",
+                    left: "El miembro salió",
+                    failed: "La acción falló",
+                },
+                bypass: {
+                    none: "Ninguno",
+                    invite: "Invitación confiable",
+                    temp_pass: "Pase temporal",
+                },
+                labels: {
+                    status: "Estado",
+                    reviewedBy: "Revisado por",
+                    updated: "Actualizado",
+                    containment: "Contención",
+                    tag: "Etiqueta",
+                    id: "ID",
+                    suspicionScore: "Puntuación de sospecha",
+                    requiredAge: "Edad requerida de la cuenta",
+                    created: "Creada",
+                    joined: "Entró",
+                    inviteUsed: "Invitación usada",
+                    bypassUsed: "Bypass usado",
+                    note: "Nota",
+                    role: "Rol",
+                    timeout: "Timeout",
+                    until: "Hasta",
+                    more: "+{count} más",
+                },
+            },
+            log: {
+                titleOpened: "Revisión de Cuarentena Abierta",
+                titleFailed: "La Revisión de Cuarentena Falló",
+                descOpened: "{user} fue contenido y puesto en cola para revisión del moderador.",
+                descFailed: "{user} activó la cuarentena, pero el flujo de revisión no se completó correctamente.",
+                fields: {
+                    member: "Miembro",
+                    suspicionScore: "Puntuación de sospecha",
+                    containment: "Contención",
+                    review: "Revisión",
+                    factors: "Factores de sospecha",
+                    notes: "Notas",
+                },
+                labels: {
+                    contained: "Contenido",
+                    roleApplied: "Rol aplicado",
+                    timeoutBackstop: "Timeout de respaldo",
+                    timeoutUntil: "Timeout hasta",
+                    unavailableContainment: "Los detalles de contención no están disponibles.",
+                },
+            },
+        },
+    },
+};
